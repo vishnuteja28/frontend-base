@@ -1,0 +1,20 @@
+.on-hover:hover {
+  border-color: darkgray;
+  cursor: pointer;
+}
+
+.products {
+  float: left;
+  padding: 2%;
+  padding-top: 3%;
+}
+
+.h-10-r {
+  height: 10rem;
+}
+
+.product-detail-container {
+  float: right;
+  padding: 2%;
+  padding-top: 3%;
+}

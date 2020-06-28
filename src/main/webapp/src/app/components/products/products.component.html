@@ -1,0 +1,36 @@
+<div class="col-sm-3 products">
+  <div>
+    <div class="card mb-4 shadow-sm on-hover">
+      <span (click)="viewDetails(1)"><img class="card-img-top h-10-r" src="../../../assets/images/mango.jpg"
+                                          alt="Card image cap"></span>
+      <div class="card-body">
+        <p class="card-text">Our Organic Alphonso, King of Mango are handpicked and delivered to you directly from our
+          farmer.</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(1)">View Details
+            </button>
+          </div>
+          <small class="text-muted">4.5(1080 Reviews)</small>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4 shadow-sm on-hover">
+      <span (click)="viewDetails(2)"><img class="card-img-top h-10-r" src="./../../../assets/images/choco.jpg"
+                                          alt="Card image cap"></span>
+      <div class="card-body">
+        <p class="card-text">Exotic & Personalized Chocolate gift boxes & Hampers.</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="viewDetails(2)">View Details
+            </button>
+          </div>
+          <small class="text-muted">4.1(1298 Reviews)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-7 well product-detail-container">
+  <router-outlet></router-outlet>
+</div>

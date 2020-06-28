@@ -1,0 +1,15 @@
+.carousel-img {
+  height: 25rem;
+  /*width: 100%;*/
+}
+
+.out-of-stock {
+  font-size: 80%;
+  color: #dc3545;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.add-button {
+  margin-left: 1.25rem;
+}

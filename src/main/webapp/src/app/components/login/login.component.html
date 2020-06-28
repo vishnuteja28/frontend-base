@@ -1,0 +1,44 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+  <p class="spinner-text">Please Wait. </p>
+</ngx-spinner>
+
+<div class="text-center login-form">
+
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72"
+         height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <div *ngIf="invalidCredentials" class="invalid-cred">
+      Invalid Credentials
+    </div>
+    <div class="form-group">
+      <label for="username" class="sr-only">User ID</label>
+      <input type="text" [ngClass]="{ 'is-invalid': (submitted && formFields.username.errors) || invalidCredentials}"
+             formControlName="username"
+             class="form-control" placeholder="Username" required autofocus/>
+      <div *ngIf="submitted && formFields.username.errors" class="invalid-feedback">
+        <div *ngIf="formFields.username.errors.required">Username is required</div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password"
+             [ngClass]="{ 'is-invalid': (submitted && formFields.password.errors) || invalidCredentials }"
+             formControlName="password"
+             class="form-control" placeholder="Password" required/>
+      <div *ngIf="submitted && formFields.password.errors" class="invalid-feedback">
+        <div *ngIf="formFields.password.errors.required">Password is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading"></span>
+        Login
+      </button>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+  </form>
+</div>
