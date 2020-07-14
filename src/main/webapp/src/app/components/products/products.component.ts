@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgxSpinnerService} from "ngx-spinner";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDetailsService} from "../../services/product-details.service";
+import {escape} from "querystring";
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,8 @@ import {ProductDetailsService} from "../../services/product-details.service";
 })
 export class ProductsComponent implements OnInit {
 
-  expression: string;
+  finalAnswer: string;
+  isNewExpression : boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private spinnerService: NgxSpinnerService,
               private productDetailService: ProductDetailsService) {
@@ -18,7 +20,7 @@ export class ProductsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.expression = "";
+    this.finalAnswer = "";
   }
 
   viewDetails(value) {
@@ -29,18 +31,24 @@ export class ProductsComponent implements OnInit {
 
   calculate() {
 
-    this.productDetailService.getCalculatedValue(this.expression).subscribe((data) => {
-      this.expression = data;
+    this.productDetailService.getCalculatedValue(this.finalAnswer).subscribe((data) => {
+      this.finalAnswer = data;
     });
-    console.log(this.expression);
+    console.log(this.finalAnswer);
+    this.isNewExpression = true;
   }
 
   clear() {
-    this.expression = "";
+    this.finalAnswer = "";
+    this.isNewExpression = true;
   }
 
   appendExpression(str: string) {
-
-    this.expression = this.expression.concat(str);
+    if(this.isNewExpression){
+      this.isNewExpression = false;
+      this.finalAnswer = str;
+    }else {
+      this.finalAnswer = this.finalAnswer.concat(str);
+    }
   }
 }

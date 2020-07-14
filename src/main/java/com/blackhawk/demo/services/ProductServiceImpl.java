@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService {
                 }
                 stack.pop();
 
-            } else if (charArray[i] == '+' || charArray[i] == '-' || charArray[i] == '/' || charArray[i] == '*') {
+            } else if (charArray[i] == '+' || charArray[i] == '-' || charArray[i] == '$' || charArray[i] == '*') {
 
                 while (!stack.empty() && checkBodmas(charArray[i], stack.peek())) {
                     evaluatedValues.push(operate(stack.pop(), evaluatedValues.pop(), evaluatedValues.pop()));
@@ -93,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
             return false;
         }
 
-        if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) {
+        if ((op1 == '*' || op1 == '$') && (op2 == '+' || op2 == '-')) {
             return false;
         }
 
@@ -111,7 +111,7 @@ public class ProductServiceImpl implements ProductService {
         if (c == '*') {
             return a * b;
         }
-        if (c == '/') {
+        if (c == '$') {
             return b / a;
         }
 

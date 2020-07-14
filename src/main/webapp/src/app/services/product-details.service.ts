@@ -19,8 +19,9 @@ export class ProductDetailsService {
   }
 
   getCalculatedValue(expression: string): Observable<string> {
-    return this._http.get(`${this.appConfigService.getConfig().serviceUrls.uiServiceUrl}/api/v1/products/calculate/${expression}`).pipe(
+    return this._http.get(`${this.appConfigService.getConfig().serviceUrls.uiServiceUrl}/api/v1/products/calculate/${expression.replace(/\//g, '$')}`).pipe(
       map((res: string) => res));
 
   }
+
 }
