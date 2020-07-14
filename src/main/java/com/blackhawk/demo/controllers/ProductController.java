@@ -31,5 +31,12 @@ public class ProductController {
         return productService.getProductDetails(productId);
     }
 
+    @CrossOrigin
+    @GetMapping(path = "/calculate/{expression}")
+    public String calculate(@PathVariable("expression") String expression) {
+        //Call Service by passing the parameters
+        return productService.calculate(expression);
+    }
+
 }
 
